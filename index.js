@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const path = require("node:path");
 const indexRouter = require("./routes/indexRouter");
+
+require("dotenv").config();
+// console.log(process.env)
+
 // to serve static assets:
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
@@ -19,7 +23,8 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).send(err.message);
 });
 
+// 8-21-25 - was app.listen(process.env.PORT, ...)
 const PORT = 3000;
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Project Mini Message Board Express app - listening on port ${PORT}!`);
 });

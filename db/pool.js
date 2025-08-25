@@ -21,7 +21,7 @@ module.exports = new Pool({
   // port: process.env.PORT
 
   // WORKS
-  //   host: "localhost", // or wherever the db is hosted
+  // host: "localhost", // or wherever the db is hosted
   // user: "czawojski",
   // database: "top_users",
   // password: "1234",
