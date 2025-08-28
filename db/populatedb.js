@@ -3,22 +3,29 @@
 const { Client } = require("pg");
 
 const SQL = `
-CREATE TABLE IF NOT EXISTS usernames (
+CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  username VARCHAR ( 255 )
+  username VARCHAR ( 255 ),
+  text VARCHAR ( 255 )
 );
 
-INSERT INTO usernames (username) 
+INSERT INTO messages (username) 
 VALUES
-  ('Bryan'),
-  ('Odin'),
-  ('Damon');
+  ('Horace'),
+  ('Gwen'),
+  ('Yeti');
+
+INSERT INTO messages (text) 
+VALUES
+  ('Hello'),
+  ('Greetings'),
+  ('Yo');
 `;
 
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: "postgresql://czawojski:1234@localhost:5432/top_users",
+    connectionString: "postgresql://postgres:fwcgKctjLrornqIEYxShWgCVvJfXwTEh@postgres.railway.internal:5432/railway",
   });
   await client.connect();
   await client.query(SQL);

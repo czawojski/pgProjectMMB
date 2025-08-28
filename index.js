@@ -24,7 +24,8 @@ app.use((err, req, res, next) => {
 });
 
 // 8-21-25 - was app.listen(process.env.PORT, ...)
-const PORT = 3000;
-app.listen(process.env.PORT || PORT, () => {
-  console.log(`Project Mini Message Board Express app - listening on port ${PORT}!`);
+// 8-28-25 - added '0.0.0.0',
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Project PG Mini Message Board Express app - listening on port ${PORT}!`);
 });

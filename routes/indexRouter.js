@@ -39,9 +39,9 @@ indexRouter.get("/new", (req, res) => {
 });
 
 indexRouter.post("/new", (req, res) => {
-  const name = req.body.name; // in form.ejs, access this property using <input name="name"
+  const username = req.body.username; // in form.ejs, access this property using <input username="username"
   const message = req.body.message; // name="message"
-  messages.push({ text: message, user: name, added: new Date() });
+  messages.push({ text: message, user: username, added: new Date() });
   res.redirect("/");
 });
 
